@@ -3,15 +3,17 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Users from "./pages/Users";
 import Contac from "./pages/Contac";
+import UserDetail from "./pages/UserDetail";
 import "./App.css";
 
 function App() {
   return (
     <BrowserRouter>
-    <Header />
+      <Header />
       <Routes>
         <Route index element={<Home />} />
         <Route path="users" element={<Users />} />
+        <Route path="users/:id" element={<UserDetail />} />
         <Route path="contac" element={<Contac />} />
       </Routes>
     </BrowserRouter>
