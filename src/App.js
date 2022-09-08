@@ -1,20 +1,29 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./pages/Home";
-import Users from "./pages/Users";
-import Contac from "./pages/Contac";
-import UserDetail from "./pages/UserDetail";
+import Home from "./pages/DashboardLayout/Home";
+import Users from "./pages/DashboardLayout/Users";
+import Contac from "./pages/DashboardLayout/Contac";
+import UserDetail from "./pages/DashboardLayout/UserDetail";
+import Login from "./pages/AuthLayout/Login";
 import "./App.css";
+import DashboardLayout from "./layouts/DashboardLayout";
+import AuthLayout from "./layouts/AuthLayout";
+import Register from "./pages/AuthLayout/Register";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
-        <Route index element={<Home />} />
-        <Route path="users" element={<Users />} />
-        <Route path="users/:id" element={<UserDetail />} />
-        <Route path="contac" element={<Contac />} />
+        <Route path="/" element={<DashboardLayout />}>
+          <Route index element={<Home />} />
+          <Route path="users" element={<Users />} />
+          <Route path="users/:id" element={<UserDetail />} />
+          <Route path="contac" element={<Contac />} />
+        </Route>
+
+        <Route path="auth" element={<AuthLayout />}>
+          <Route index element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
