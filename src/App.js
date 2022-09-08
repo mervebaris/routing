@@ -8,6 +8,7 @@ import "./App.css";
 import DashboardLayout from "./layouts/DashboardLayout";
 import AuthLayout from "./layouts/AuthLayout";
 import Register from "./pages/AuthLayout/Register";
+import Error404 from "./pages/Error404";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
           <Route index element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
+
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   );
