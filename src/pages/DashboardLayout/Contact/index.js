@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import contactSchema from "./validations";
 import './styles.css'
 
-function Contac() {
+function Contact() {
   const {handleChange, handleSubmit, values, isSubmitting, errors } = useFormik({
      initialValues:{
           firstName: "",
@@ -23,7 +23,7 @@ function Contac() {
 
   return (
     <div>
-      <h2>Contac</h2>
+      <h2>Contact</h2>
 
       <form onSubmit={handleSubmit} className="form">
         <div>
@@ -85,4 +85,4 @@ function Contac() {
   );
 }
 
-export default Contac;
+export default Contact;

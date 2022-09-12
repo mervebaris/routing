@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/DashboardLayout/Home";
 import Users from "./pages/DashboardLayout/Users";
-import Contac from "./pages/DashboardLayout/Contact";
+import Contact from "./pages/DashboardLayout/Contact";
 import UserDetail from "./pages/DashboardLayout/UserDetail";
 import Login from "./pages/AuthLayout/Login";
 import "./App.css";
@@ -18,7 +18,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="users" element={<Users />} />
           <Route path="users/:id" element={<UserDetail />} />
-          <Route path="contac" element={<Contac />} />
+          <Route path="contac" element={<Contact />} />
         </Route>
 
         <Route path="auth" element={<AuthLayout />}>
