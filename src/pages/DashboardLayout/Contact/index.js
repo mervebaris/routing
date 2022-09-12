@@ -4,7 +4,7 @@ import contactSchema from "./validations";
 import './styles.css'
 
 function Contact() {
-  const {handleChange, handleSubmit, values, isSubmitting, errors } = useFormik({
+  const {handleChange, handleSubmit, handleBlur, values, isSubmitting, errors, touched } = useFormik({
      initialValues:{
           firstName: "",
           lastName: "",
@@ -35,8 +35,11 @@ function Contact() {
             value={values.firstName}
             disabled={isSubmitting}
             onChange={handleChange("firstName")}
+            onBlur={handleBlur("firstName")}
           />
-          {errors.firstName && <div className="error">{errors.firstName}</div>}
+          {errors.firstName && touched.firstName && (
+            <div className="error">{errors.firstName}</div>
+          )}
         </div>
 
         <div>
@@ -48,8 +51,11 @@ function Contact() {
             value={values.lastName}
             disabled={isSubmitting}
             onChange={handleChange("lastName")}
+            onBlur={handleBlur("lastName")}
           />
-          {errors.lastName && <div className="error">{errors.lastName}</div>}
+          {errors.lastName && touched.lastName && (
+            <div className="error">{errors.lastName}</div>
+          )}
         </div>
 
         <div>
@@ -62,8 +68,11 @@ function Contact() {
             value={values.email}
             disabled={isSubmitting}
             onChange={handleChange("email")}
+            onBlur={handleBlur("email")}
           />
-          {errors.email && <div className="error">{errors.email}</div>}
+          {errors.email && touched.email && (
+            <div className="error">{errors.email}</div>
+          )}
         </div>
         <div>
           <label htmlFor="email">Message</label>
@@ -74,8 +83,11 @@ function Contact() {
             value={values.message}
             disabled={isSubmitting}
             onChange={handleChange("messsage")}
+            onBlur={handleBlur("message")}
           />
-          {errors.message && <div className="error">{errors.message}</div>}
+          {errors.message && touched.message && (
+            <div className="error">{errors.message}</div>
+          )}
         </div>
         <button type="submit" disabled={isSubmitting}>
           Submit
