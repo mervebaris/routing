@@ -9,11 +9,14 @@ function Contact() {
           firstName: "",
           lastName: "",
           email: "",
-          message: "",
+          message: ""
         },
         onSubmit: async (values, bag) => {
           await new Promise((r) => setTimeout(r, 500));
           console.log(JSON.stringify(values, null, 2));
+          if(values.email === "test@test.com") {
+             return bag.setErrors({email: "This email is already taken"});
+          }
           bag.resetForm();
         },
         validationSchema: contactSchema,
@@ -79,10 +82,10 @@ function Contact() {
           <textarea
             id="message"
             name="message"
-            placeholder="Your massege... "
+            placeholder="Your message... "
             value={values.message}
             disabled={isSubmitting}
-            onChange={handleChange("messsage")}
+            onChange={handleChange("message")}
             onBlur={handleBlur("message")}
           />
           {errors.message && touched.message && (
