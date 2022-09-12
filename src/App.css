@@ -9,3 +9,15 @@ border-bottom: 1px solid #ccc;
 padding: 10px 0;
 column-gap: 10px;
 }
+.form > div{
+  margin-bottom: 10px ;
+}
+.form > div > label{
+display: block;
+}
+.form > div > input, textarea{
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
